@@ -97,7 +97,7 @@ def player_collision(players):
                 players[player2]["score"] = math.sqrt(players[player2]["score"]**2 + players[player1]["score"]**2) # adding areas instead of radii
                 players[player1]["score"] = 0
                 players[player1]["x"], players[player1]["y"] = get_start_location(players)
-                print(f"[GAME] " + players[player2]["name"] + " ATE " + players[player1]["name"])
+                #print(f"[GAME] " + players[player2]["name"] + " ATE " + players[player1]["name"])
 
 
 def create_balls(balls, n):

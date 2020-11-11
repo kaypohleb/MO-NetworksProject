@@ -3,7 +3,6 @@
 import contextlib
 with contextlib.redirect_stdout(None):
     import pygame
-from client import Network
 import random
 import os
 import socket
@@ -47,12 +46,10 @@ class Network:
         :return: str
         """
         try:
-            print("[LOG] trying to send", data)
             if pick:
                 self.client.sendto(pickle.dumps(data),self.addr)
             else:
                 self.client.sendto(str.encode(data),self.addr)
-            print("[LOG] sent data:", data)
             reply, address = self.client.recvfrom(2048*4)
             try:
                 reply = pickle.loads(reply)
