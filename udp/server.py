@@ -14,7 +14,7 @@ START_RADIUS = 7
 ROUND_TIME = 60 * 5
 MASS_LOSS_TIME = 7
 W, H = 1600, 830
-SERVER_IP = "192.168.0.169"
+SERVER_IP = "0.0.0.0"
 
 
 # Setup
@@ -186,7 +186,7 @@ while not start:
         connections += 1
         new_client(name,_id)
         _id += 1
-        if input("Next Player? Y/N: ") == "N":
+        if input("Press N to start/ Enter for new player to connect: ") == "N":
             start = True
             start_time = time.time()
             print("[STARTED] Game Started")
