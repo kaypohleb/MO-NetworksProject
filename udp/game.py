@@ -88,7 +88,7 @@ def redraw_window(players, balls, game_time, score):
 	WIN.blit(text,(10,15 + text.get_height()))
 
 
-def main(name):
+def main():
 	"""
 	function for running the game,
 	includes the main loop of the game
@@ -100,8 +100,8 @@ def main(name):
 	# start by connecting to the network
 	server = Network()
 	current_id = server.connect(name)
+	print("[LOG] client id:", current_id)
 	balls, players, game_time = server.send("get")
-
 	# setup the clock, limit to 30fps
 	clock = pygame.time.Clock()
 
@@ -155,10 +155,9 @@ def main(name):
 		pygame.display.update()
 
 
-	server.disconnect()
+	
 	pygame.quit()
 	quit()
-
 
 # get users name
 while True:
@@ -176,4 +175,4 @@ WIN = pygame.display.set_mode((W,H))
 pygame.display.set_caption("Blobs")
 
 # start game
-main(name)
+main()

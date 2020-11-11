@@ -1,14 +1,19 @@
 import socket
 import _pickle as pickle
 
+
 class Network:
+    """
+    class to connect, send and recieve information from the server
+    need to hardcode the host attirbute to be the server's ip
+    """
     def __init__(self):
-        self.client = socket.socket()
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.host = "192.168.56.1"
+        #self.client.settimeout(10.0)
+        self.host = "192.168.0.169"
         self.port = 5000
         self.addr = (self.host, self.port)
-    
+
     def connect(self, name):
         """
         connects to server and returns the id of the client that connected
